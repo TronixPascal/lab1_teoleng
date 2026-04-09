@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
+from programa2 import programa2
+from programa4 import programa4
+
 
 def programa5(RutaPdf,RutaXML):
     resultado = False
@@ -8,6 +11,13 @@ def programa5(RutaPdf,RutaXML):
     '''
     SU CÓDIGO
     '''
+    texto_xml = programa4(RutaXML)
+
+    fecha_pdf, monto_pdf = programa2(RutaPdf)
+    match_fecha = re.search(fecha_pdf, texto_xml, flags=0)
+    match_monto = re.search(monto_pdf, texto_xml, flags=0)
+    if match_fecha and match_monto:
+        resultado = True
     
     if resultado:
         return(True)

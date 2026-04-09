@@ -6,7 +6,8 @@ def programa4(RutaXML):
     '''
     SU CÓDIGO
     '''
-    text = ""
+    with open(RutaXML, 'r', encoding='utf-8') as f:
+        text = f.read()
     return text
   
 
