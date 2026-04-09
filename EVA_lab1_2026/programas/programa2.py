@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
+from programa1 import programa1
 
 def programa2(RutaFactura):
     
@@ -9,9 +10,12 @@ def programa2(RutaFactura):
     
     NOTA: El formato de la fecha debe ser AAAA-MM-DD 
     '''
-    fecha = "2026-04-01"        
-    monto = 954,25
-    return fecha, monto
+    text = programa1(RutaFactura)
+    pattern = r"(\d{2})-(\d{2})-(\d{4})"
+    fecha = re.search(pattern, text)
+    norm = fecha.group(3) + '-' + fecha.group(2) + '-' + fecha.group(1)
+    monto = re.findall(r'\d+\,\d{2}', text)
+    return norm, monto
   
 
 if __name__ == '__main__':
