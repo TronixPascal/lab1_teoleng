@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
-
+from pypdf import PdfReader
 
 def programa1(RutaPdf):
-    '''
-    SU CÓDIGO
-    '''
+    lector = PdfReader(RutaPdf)
     text = ""
     
+    for p in lector.pages:
+        text= text + p.extract_text() + "\n"
     
     return text
 
