@@ -14,7 +14,8 @@ def programa2(RutaFactura):
     pattern = r"(\d{2})-(\d{2})-(\d{4})"
     fecha = re.search(pattern, text)
     norm = fecha.group(3) + '-' + fecha.group(2) + '-' + fecha.group(1)
-    monto = re.findall(r'\d+\,\d{2}', text)
+    monto_match = re.search(r"DÉBITO\s+BANCARIO\s+(\d+,\d{2})", text)
+    monto = monto_match.group(1)
     return norm, monto
   
 
