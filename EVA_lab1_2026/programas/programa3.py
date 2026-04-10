@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
+from programa1 import programa1
 
 def programa3(RutaFactura):
     
-    '''
-    SU CÓDIGO
+    text = programa1(RutaFactura)
+
+    #res=f"Cant: 10 |Desc: PRUEBA | 10,10 c/u |Total: 101\n"
+    res = ""
+    patron = r"^\s*(\d+)\s+(.+?)\s+(\d+(?:,\d{2})?)\s+(\d+(?:,\d{2})?)\s*$"
+    filas = re.findall(patron,text, flags=re.MULTILINE)
     
     
-    '''
-    
-    res=f"Cant: 10 |Desc: PRUEBA | 10,10 c/u |Total: 101\n"
-    
-    
+    for cant,desc,precio_unitario,precio_total in filas:
+        res = res + f"Cant: {cant} |Desc: {desc} | {precio_unitario} c/u |Total:  {precio_total}" + "\n"
+
     return res
 
 if __name__ == '__main__':
