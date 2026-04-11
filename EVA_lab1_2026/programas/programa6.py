@@ -17,6 +17,6 @@ if __name__ == '__main__':
  
     ret = programa6(entrada_pdf,entrada_xml)      # ejecutar 
     
-    f = open(salida, 'w')  # abrir archivo salida
+    f = open(salida, 'w', encoding='utf-8')  # abrir archivo salida
     f.write(ret)           # escribir archivo salida
     f.close()              # cerrar archivo salida
