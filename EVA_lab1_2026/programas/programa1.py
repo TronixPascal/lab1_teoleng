@@ -10,6 +10,10 @@ def programa1(RutaPdf):
     for p in lector.pages:
         text= text + p.extract_text() + "\n"
     
+    #capaz hay una forma mas prolija de hacer esto, pero con esto se fixea el error
+    if text.endswith("\n"):
+        text = text[:-1]
+
     return text
 
 

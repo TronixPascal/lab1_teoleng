@@ -13,10 +13,16 @@ def programa5(RutaPdf,RutaXML):
     texto_xml = programa4(RutaXML)
 
     fecha_pdf, monto_pdf = programa2(RutaPdf)
-    match_fecha = re.search(fecha_pdf, texto_xml, flags=0)
-    match_monto = re.search(monto_pdf, texto_xml, flags=0)
+    match_fecha = re.search(re.escape(fecha_pdf), texto_xml)
+    match_monto = re.search(re.escape(monto_pdf), texto_xml)
 
-    return match_fecha and match_monto
+    if match_fecha and match_monto:
+        resultado = True
+    
+        if resultado:
+            return(True)
+        else:
+            return(False)
     
     
 
