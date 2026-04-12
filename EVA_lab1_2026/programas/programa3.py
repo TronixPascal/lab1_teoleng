@@ -7,9 +7,9 @@ def programa3(RutaFactura):
     
     text = programa1(RutaFactura)
 
-    #res=f"Cant: 10 |Desc: PRUEBA | 10,10 c/u |Total: 101\n"
+    
     res = ""
-    #patron = r"^\s*(\d+)\s+(\d+(?:,\d{2})?)\s+(\d+(?:,\d{2})?)\s*$"
+    
     patron = r"^\s*(\d+)\s+(.+?)\s+(\d+(?:,\d{2}))\s+(\d+(?:,\d{2}))\s*$"
     filas = re.findall(patron,text, flags=re.MULTILINE)
     
